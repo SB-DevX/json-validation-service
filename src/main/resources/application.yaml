@@ -1,0 +1,25 @@
+server:
+  port: 9986
+  shutdown: graceful
+  servlet:
+    context-path: /jvs
+
+mongo:
+  request:
+    collection:
+      name: requests
+    db:
+      name: request-db
+  jsonschema:
+    collection:
+      name: jsonschema
+  config:
+    db:
+      name: config-db
+
+spring:
+  data:
+    mongodb:
+      database: request-db
+      port: 27017
+      host: localhost
