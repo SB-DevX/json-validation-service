@@ -22,7 +22,7 @@ public class FetchJsonSchemasProcessor {
     private MongoRepository<Object> repository;
     
     @PostConstruct
-    private void fetchJsonSchemas() {
+    private void doProcess() {
         List<Object> jsonschemas = this.repository.fetchAll();
         
         jsonschemas.forEach(objectSchema -> {
