@@ -52,7 +52,7 @@ public class ValidationProcessor {
         MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
         Method method = methodSignature.getMethod();
         Annotation annotation = method.getAnnotation(ValidateSchema.class);
-        String schema = (String) AnnotationUtils.getValue(annotation,"schema");
+        String schema = (String) AnnotationUtils.getValue(annotation, "schema");
         Set<ValidationMessage> errors = this.jsonSchemaProducer.apply(schema).validate((JsonNode) signatureArgs[0]);
         if(!errors.isEmpty()) {
             throw new ValidationFailedException("Json validation failed", errors);
