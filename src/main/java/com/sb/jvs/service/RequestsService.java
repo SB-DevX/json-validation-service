@@ -19,9 +19,9 @@ public class RequestsService {
     
     @ValidateSchema(schema = "request")
     public boolean processRequest(JsonNode jsonReq) {
-        Request req = mapper.convertValue(jsonReq, Request.class);
+        Request req = this.mapper.convertValue(jsonReq, Request.class);
         try {
-            repository.save(req);
+            this.repository.save(req);
             return true;
         }catch(Exception e) {
             throw new RuntimeException(e);

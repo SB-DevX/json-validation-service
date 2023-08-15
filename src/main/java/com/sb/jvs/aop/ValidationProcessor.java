@@ -36,7 +36,7 @@ public class ValidationProcessor {
         InputStream jsonSchemaStream = Optional.ofNullable(jsonSchemaNode).map(jsonNode -> {
             InputStream inputStream;
             try {
-                byte[] bytes = objectMapper.writeValueAsBytes(jsonNode);
+                byte[] bytes = this.objectMapper.writeValueAsBytes(jsonNode);
                 inputStream = new ByteArrayInputStream(bytes);
             } catch (JsonProcessingException e) {
                 throw new ValidationFailedException(e);

@@ -23,11 +23,11 @@ public class FetchJsonSchemasProcessor {
     
     @PostConstruct
     private void fetchJsonSchemas() {
-        List<Object> jsonschemas = repository.fetchAll();
+        List<Object> jsonschemas = this.repository.fetchAll();
         
         jsonschemas.forEach(objectSchema -> {
-            JsonNode jsonSchema = mapper.convertValue(objectSchema, JsonNode.class);
-            jsonSchemasMap.put(jsonSchema.get("key").asText(), jsonSchema);
+            JsonNode jsonSchema = this.mapper.convertValue(objectSchema, JsonNode.class);
+            FetchJsonSchemasProcessor.jsonSchemasMap.put(jsonSchema.get("key").asText(), jsonSchema);
         });
     }
     
